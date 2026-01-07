@@ -13,15 +13,15 @@ Enter the csv file path that contains your data. Run each cell one by one. This 
 <li> Prediction using model_training.ipynb:
 Enter the csv file path and image file path. 
 Run all the cells.<br>
-To use xgboost model use:          
-                                    df = pd.read_csv('file.csv')     
+To use xgboost model use: <br>         
+                                    df = pd.read_csv('file.csv') <br>    
                                     exclude_cols = ['id','date']<br>
                                     feature_cols = [col for col in testing_data.columns if col not in exclude_cols]<br>
                                     X = df[feature_cols_pros].values<br>
                                     X_scaled = scaler_pros.transform(X)<br>
                                     y_pred= xgb_model_pros.predict(X_scaled)
 
-To use hybrid model use:            
+To use hybrid model use: <br>           
                                     df = pd.read_csv('file.csv')<br>
                                     exclude_cols = ['id','date']<br>
                                     feature_cols = [col for col in testing_data.columns if col not in exclude_cols]<br>

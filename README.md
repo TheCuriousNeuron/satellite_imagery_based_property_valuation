@@ -12,26 +12,26 @@ Enter the csv file path that contains your data. Run each cell one by one. This 
 
 3. Prediction using model_training.ipynb:
 Enter the csv file path and image file path. 
-Run all the cells.
+Run all the cells.<br>
 To use xgboost model use:          
-                                    df = pd.read_csv('file.csv')        
-                                    exclude_cols = ['id','date']
-                                    feature_cols = [col for col in testing_data.columns if col not in exclude_cols]
-                                    X = df[feature_cols_pros].values
-                                    X_scaled = scaler_pros.transform(X)
+                                    df = pd.read_csv('file.csv') <br>       
+                                    exclude_cols = ['id','date']<br>
+                                    feature_cols = [col for col in testing_data.columns if col not in exclude_cols]<br>
+                                    X = df[feature_cols_pros].values<br>
+                                    X_scaled = scaler_pros.transform(X)<br>
                                     y_pred= xgb_model_pros.predict(X_scaled)
 
 To use hybrid model use:            
-                                    df = pd.read_csv('file.csv')
-                                    exclude_cols = ['id','date']
-                                    feature_cols = [col for col in testing_data.columns if col not in exclude_cols]
-                                    X = df[feature_cols_pros].values
-                                    X_scaled = scaler_pros.transform(X)
-                                    id = X['id']
-                                    y = np.zeros(X.shape[0])
-                                    gen = multimodal_generator(id, X_scaled, y, BATCH_SIZE=16)
-                                    steps = len(ids) // BATCH_SIZE
-                                    y_pred = cnn_model_pros.predict(gen, steps=steps, verbose=1).flatten()
+                                    df = pd.read_csv('file.csv')<br>
+                                    exclude_cols = ['id','date']<br>
+                                    feature_cols = [col for col in testing_data.columns if col not in exclude_cols]<br>
+                                    X = df[feature_cols_pros].values<br>
+                                    X_scaled = scaler_pros.transform(X)<br>
+                                    id = X['id']<br>
+                                    y = np.zeros(X.shape[0])<br>
+                                    gen = multimodal_generator(id, X_scaled, y, BATCH_SIZE=16)<br>
+                                    steps = len(ids) // BATCH_SIZE<br>
+                                    y_pred = cnn_model_pros.predict(gen, steps=steps, verbose=1).flatten()<br>
 
 This file also compares the performance of both models : Xgboost and Hybrid and showcases training history of hybrid model & Grad-CAM visualisation.
 
